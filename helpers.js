@@ -20,10 +20,20 @@ const getLinks = res => {
 
 const renderNewLink = () => {
     let newDiv = document.createElement('div');
-    newDiv.className = 'new-link';
-    newDiv.innerHTML += `<p class="original">${originalLink}</p>`;
-    newDiv.innerHTML += '<hr>';
-    newDiv.innerHTML += `<p class="new">${shortLink}</p>`;
-    newDiv.innerHTML += '<button class="copy-btn">Copy</button>';
+    newDiv.className = 'new-link-container';
+    let contents = [
+        `<p class="original">${originalLink}</p>`,
+        '<hr>',
+        `<p class="new">${shortLink}</p>`,
+        '<button class="copy-btn">Copy</button>'
+    ]
+    contents.forEach(content => newDiv.innerHTML += content);
     linksContainer.appendChild(newDiv);
+
+    const copyButtons = document.querySelectorAll('.copy-btn');
+    const newestButton = copyButtons[copyButtons.length - 1]
+    newestButton.onclick = e => {
+        e.target.style.backgroundColor = 'var(--dark-violet)';
+        e.target.innerHTML = 'Copied!';
+    };
 }

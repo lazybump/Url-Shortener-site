@@ -108,8 +108,11 @@ form * {
     height: 4.8rem;
 }
 
+#link-input {
+    padding: 10px 20px;
+}
+
 #link-input::placeholder {
-    padding: 0 .3rem;
     font-size: .8rem;
     font-weight: bold;
     opacity: .6;
@@ -229,14 +232,14 @@ footer li {
 
 /* Dynamic rulesets */
 
-.new-link {
+.new-link-container {
     background-color: #FFF;
     margin: 1.25rem 0;
     padding: 1.25rem;
     border-radius: .3rem;
 }
 
-.new-link .original {
+.original {
     color: #000;
     text-align: left;
     margin-top: 0;
@@ -245,12 +248,12 @@ footer li {
     height: 1.7rem;
 }
 
-.new-link .new {
+.new {
     text-align: left;
     color: var(--darker-cyan);
 }
 
-.new-link .copy-btn {
+.copy-btn {
     display: block;
     background-color: var(--cyan);
     color: #FFF;

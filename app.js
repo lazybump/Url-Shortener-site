@@ -6,21 +6,22 @@ const error = document.getElementById('error');
 
 const generateLink = async (e) => {
     e.preventDefault();
-
+    let query = input.value;
+    // Reset input field
+    input.value = '';
     // Error validation
-    if (input.value === '' || input.value === null) {
+    if (query === '' || query === null) {
         toggleErrorOn();
         return;
     } else {
         toggleErrorOff();
     }
-    // Consuming API
-    const endpoint = 'https://api.shrtco.de/v2/shorten?url=' + input.value;
+    // Consume API
+    const endpoint = 'https://api.shrtco.de/v2/shorten?url=' + query;
     try {
         const response = await fetch(endpoint);
         if (response.ok) {
             const jsonResponse = await response.json();
-            // console.log(jsonResponse);
             getLinks(jsonResponse);
             renderNewLink();
         } else {
@@ -30,7 +31,6 @@ const generateLink = async (e) => {
         console.log(error);
     }
 };
-
 
 
 form.addEventListener('submit', generateLink);
