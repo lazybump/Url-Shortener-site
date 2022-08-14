@@ -1,0 +1,263 @@
+:root {
+    --dark-violet: hsl(257, 27%, 26%);
+    --very-dark-violet: hsl(260, 8%, 14%);
+    --very-dark-blue: hsl(255, 11%, 22%);
+    --grayish-violet: hsl(257, 7%, 63%);
+    --cyan: hsl(180, 66%, 49%);
+    --darker-cyan: hsl(180, 65%, 47%);
+    --red: hsl(0, 87%, 67%);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+html {
+    font-size: 18px;
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    background-color: rgb(248, 246, 250);
+}
+
+header {
+    padding: 2.2rem 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.burger-icon {
+    width: 1.6rem;
+    height: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.slice {
+    background-color: #999;
+    height: .22rem;
+}
+
+#desk-container {
+    margin-left: 1.6rem;
+    height: 17rem;
+    overflow: hidden;
+}
+
+#desk-container img {
+    max-height: 100%;
+}
+
+main {
+    padding: 1.25rem 1.6rem;
+}
+
+h1 {
+    color: var(--dark-violet);
+    font-size: 2.2rem;
+}
+
+p {
+    color: var(--grayish-violet);
+}
+
+.get-started-btn,
+#shorten-btn {
+    display: block;
+    background-color: var(--cyan);
+    color: #FFF;
+    font-weight: bold;
+    border: none;
+}
+
+.get-started-btn {
+    margin: 1.9rem auto 5rem;
+    width: 60%;
+    padding: .9rem 1.25rem;
+    border-radius: 1.9rem;
+    font-size: 1.1rem;
+}
+
+form {
+    border-radius: .6rem;
+    height: 10.6rem;
+    background: var(--dark-violet) url('./images/bg-shorten-mobile.svg') no-repeat left/cover;
+    color: #FFF;
+    padding: 0 1.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+form * {
+    border-radius: .3rem;
+    height: 2.5rem;
+    width: 100%;
+}
+
+.input-container {
+    height: 4.8rem;
+}
+
+#link-input::placeholder {
+    padding: 0 .3rem;
+    font-size: .8rem;
+    font-weight: bold;
+    opacity: .6;
+  }
+
+#error {
+    color: var(--red);
+    display: block;
+    text-align: start;
+    font-size: .65rem;
+    margin-top: .4rem;
+}
+
+#shorten-btn {
+    font-size: 1rem;
+}
+
+.advanced h2 {
+    margin-top: 5rem;
+    color: var(--dark-violet)
+}
+
+.stats {
+    background-color: #FFF;
+    border-radius: .3rem;
+    padding: 3.1rem 1.25rem 1.6rem;
+}
+
+.stats h3 {
+    font-size: 1.3rem;
+}
+
+.icon {
+    border-radius: 50%;
+    display: inline-block;
+    height: 5.6rem;
+    width: 5.6rem;
+    background: var(--dark-violet) no-repeat center;
+    position: relative;
+}
+
+.brand {
+    background-image: url('./images/icon-brand-recognition.svg');
+    bottom: -3.4rem;
+}
+
+.records {
+    background-image: url('./images/icon-detailed-records.svg');
+    position: absolute;
+    top: 4.4rem;
+    right: 6.1rem;
+}
+
+.customizable {
+    background-image: url('./images/icon-fully-customizable.svg');
+    position: absolute;
+    top: 4.4rem;
+    right: 6.1rem;
+}
+
+.line {
+    background-color: var(--cyan);
+    margin: 0 auto 0;
+    width: .75rem;
+    height: 7.5rem;
+}
+
+.stat-container {
+    position: relative;
+}
+
+.boost {
+    border: .1rem solid var(--dark-violet);
+    padding-top: 6.25rem;
+    margin-top: 5rem;
+    color: #FFF;
+    background: var(--dark-violet) url('./images/bg-boost-mobile.svg') no-repeat left/cover;
+}
+
+footer {
+    color: #FFF;
+    background-color: var(--very-dark-violet);
+    padding-top: 3.1rem;
+}
+
+footer h2 {
+    font-size: 1.6rem;
+    margin-top: 0;
+}
+
+.features {
+    list-style-type: none;
+}
+
+footer ul {
+    padding: 0;
+}
+
+footer li {
+    font-size: .75rem;
+    font-weight: 100;
+    color: var(--grayish-violet);
+    line-height: 1.6rem;
+}
+
+.socials {
+    padding: 1.9rem 0;
+}
+
+.socials img {
+    height: 1.1rem;
+    margin: 0 .5rem;
+}
+
+
+
+
+/* Dynamic rulesets */
+
+.new-link {
+    background-color: #FFF;
+    margin: 1.25rem 0;
+    padding: 1.25rem;
+    border-radius: .3rem;
+}
+
+.new-link .original {
+    color: #000;
+    text-align: left;
+    margin-top: 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    height: 1.7rem;
+}
+
+.new-link .new {
+    text-align: left;
+    color: var(--darker-cyan);
+}
+
+.new-link .copy-btn {
+    display: block;
+    background-color: var(--cyan);
+    color: #FFF;
+    font-weight: bold;
+    border: none;   
+    font-size: .9rem;
+    border-radius: .3rem;
+    height: 2.5rem;
+    width: 100%;
+}
