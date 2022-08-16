@@ -2,35 +2,67 @@ const form = document.querySelector('form');
 const linksContainer = document.getElementById('links-container');
 const input = document.getElementById('link-input');
 const error = document.getElementById('error');
+const getStartedButton = document.querySelector('.get-started-btn');
+
+// Retrieve link pairs from local storage if there are any
+const linkPairs = JSON.parse(localStorage.getItem('Link Pairs')) || [];
+
+// Add link pair object to array, and localStorage, then return it
+const addPair = (long, short) => {
+    linkPairs.push({
+        long,
+        short
+    })
+
+    localStorage.setItem('Link Pairs', JSON.stringify(linkPairs));
+    
+    return { long, short };
+};
 
 
-const generateLink = async (e) => {
+const renderLinks = ({ long, short }) => {
+    let newDiv = document.createElement('div');
+    newDiv.className = 'new-link-container';
+
+    let contents = [
+        `<p class="original">${long}</p>`,
+        '<hr>',
+        `<p class="new">${short}</p>`,
+        '<button class="copy-btn">Copy</button>'
+    ]
+    
+    contents.forEach(content => newDiv.innerHTML += content);
+
+    linksContainer.appendChild(newDiv);
+
+    const copyButtons = document.querySelectorAll('.copy-btn');
+    const lastCopyBtn = copyButtons[copyButtons.length - 1]
+    
+    lastCopyBtn.addEventListener('click', copyLink);
+};
+
+
+// Rebuild the links on the page after each refresh
+linkPairs.forEach(renderLinks);
+
+
+
+form.onsubmit = (e) => {
     e.preventDefault();
-    let query = input.value;
-    // Reset input field
-    input.value = '';
-    // Error validation
-    if (query === '' || query === null) {
+
+    // Input validation
+    if (input.value === '' || input.value === null) {
         toggleErrorOn();
         return;
     } else {
         toggleErrorOff();
     }
-    // Consume API
-    const endpoint = 'https://api.shrtco.de/v2/shorten?url=' + query;
-    try {
-        const response = await fetch(endpoint);
-        if (response.ok) {
-            const jsonResponse = await response.json();
-            getLinks(jsonResponse);
-            renderNewLink();
-        } else {
-            throw new Error('Request failed bro');
-        }
-    } catch (error) {
-        console.log(error);
-    }
+
+    shortenUrl()
+    .then(() => {
+        const newPair = addPair(originalLink, shortLink);
+        renderLinks(newPair);
+        })
+
+    input.value = '';
 };
-
-
-form.addEventListener('submit', generateLink);
