@@ -13,12 +13,6 @@ function toggleErrorOff() {
 }
 
 
-// Switches to input field when 'Get started' is clicked
-getStartedButton.addEventListener('click', () => {
-    input.focus();
-});
-
-
 // Consume API
 async function shortenUrl() {
     const endpoint = 'https://api.shrtco.de/v2/shorten?url=' + input.value;
