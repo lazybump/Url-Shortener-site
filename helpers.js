@@ -12,6 +12,7 @@ function toggleErrorOff() {
     error.style.color = 'none';
 }
 
+
         // Switches to input field when 'Get started' is clicked
 // getStartedButton.addEventListener('click', () => {
 //     input.focus();
@@ -36,6 +37,7 @@ async function shortenUrl() {
 
 
 let originalLink, shortLink;
+
 // Grab relevant info from API
 const storeLinks = res => {
     originalLink = res.result.original_link;
@@ -49,3 +51,9 @@ function copyLink(e) {
     e.target.style.backgroundColor = 'var(--dark-violet)';
     e.target.innerHTML = 'Copied!';
 };
+
+
+function toggleMenu() {
+    const nav = document.querySelector('nav');
+    nav.hidden = !(nav.hidden)
+}

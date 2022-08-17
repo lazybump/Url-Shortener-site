@@ -28,10 +28,15 @@ body {
 }
 
 header {
-    padding: 2.2rem 1.25rem;
+    padding: 2rem 1.25rem 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    width: 100%;
+    background-color: rgb(248, 246, 250);
 }
 
 .burger-icon {
@@ -47,7 +52,44 @@ header {
     height: .22rem;
 }
 
+nav {
+    background-color: var(--dark-violet);
+    position: fixed;
+    z-index: 1;
+    width: 84%;
+    top: 5rem;
+    border-radius: .6rem;
+}
+
+nav ul {
+    padding: 0;
+    /* border: 2px solid lime; */
+}
+
+nav li {
+    color: #FFF;
+    list-style: none;
+    line-height: 3rem;
+    font-weight: bold;
+    padding: 0;
+    /* border: 2px solid lime; */
+}
+
+hr {
+    opacity: .2;
+}
+
+#sign-up {
+    background-color: var(--cyan);
+    width: 85%;
+    margin: 1rem auto 2rem;
+    line-height: 2.5rem;
+    border-radius: 1.9rem;
+
+}
+
 #desk-container {
+    margin-top: 6rem;
     margin-left: 1.6rem;
     height: 17rem;
     overflow: hidden;

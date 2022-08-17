@@ -21,7 +21,7 @@ const addPair = (long, short) => {
 
 
 const renderLinks = ({ long, short }) => {
-    let newDiv = document.createElement('div');
+    const newDiv = document.createElement('div');
     newDiv.className = 'new-link-container';
 
     let contents = [
@@ -63,6 +63,10 @@ form.onsubmit = (e) => {
         const newPair = addPair(originalLink, shortLink);
         renderLinks(newPair);
         })
-
-    input.value = '';
+    form.reset();
 };
+
+
+const burger = document.querySelector('.burger-icon');
+
+burger.onclick = toggleMenu
