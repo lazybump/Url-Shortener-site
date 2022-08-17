@@ -9,14 +9,15 @@ const linkPairs = JSON.parse(localStorage.getItem('Link Pairs')) || [];
 
 // Add link pair object to array, and localStorage, then return it
 const addPair = (long, short) => {
-    linkPairs.push({
+    let obj = {
         long,
         short
-    })
+    }
+    
+    linkPairs.push(obj)
 
     localStorage.setItem('Link Pairs', JSON.stringify(linkPairs));
-    
-    return { long, short };
+    return obj;
 };
 
 
@@ -67,6 +68,6 @@ form.onsubmit = (e) => {
 };
 
 
-const burger = document.querySelector('.burger-icon');
+const burgerIcon = document.querySelector('.burger-icon');
 
-burger.onclick = toggleMenu
+burgerIcon.onclick = toggleMenu

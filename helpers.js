@@ -13,10 +13,10 @@ function toggleErrorOff() {
 }
 
 
-        // Switches to input field when 'Get started' is clicked
-// getStartedButton.addEventListener('click', () => {
-//     input.focus();
-// });
+// Switches to input field when 'Get started' is clicked
+getStartedButton.addEventListener('click', () => {
+    input.focus();
+});
 
 
 // Consume API
