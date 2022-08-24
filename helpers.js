@@ -1,4 +1,4 @@
-// Error display when there's no input
+// Display error when there's no input
 function toggleErrorOn() {
     input.style.border = '3px solid var(--red)';
     error.innerHTML = 'Please add a link';
@@ -13,16 +13,26 @@ function toggleErrorOff() {
 }
 
 
+
+// Server endpoint
+const serverPath = 'http://localhost:3000/server';
+
+
 // Consume API
-async function shortenUrl() {
-    const endpoint = 'https://api.shrtco.de/v2/shorten?url=' + input.value;
+const sendToBackend = async () => {
+    const data = JSON.stringify({ userInput: input.value });
     try {
-        const response = await fetch(endpoint);
-        if (response.ok) {
+        const response = await fetch(
+            serverPath, {
+                method: 'POST',
+                body: data,
+                headers: {
+                'Content-type': 'application/json'
+                }
+            });
+        if(response.ok){
             const jsonResponse = await response.json();
             storeLinks(jsonResponse);
-        } else {
-            throw new Error('Request failed!');
         }
     } catch (error) {
         console.log(error);
@@ -30,12 +40,13 @@ async function shortenUrl() {
 };
 
 
+
 let originalLink, shortLink;
 
-// Grab relevant info from API
+// Grab relevant info from Rebrandly API
 const storeLinks = res => {
-    originalLink = res.result.original_link;
-    shortLink = res.result.full_short_link;
+    originalLink = res.destination;
+    shortLink = res.shortUrl;
 }
 
 

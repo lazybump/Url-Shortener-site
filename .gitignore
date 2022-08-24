@@ -1,0 +1,7 @@
+*.md
+
+.env
+
+design/
+
+node_modules/

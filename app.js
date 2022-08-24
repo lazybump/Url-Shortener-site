@@ -4,6 +4,7 @@ const input = document.getElementById('link-input');
 const error = document.getElementById('error');
 const getStartedButton = document.querySelector('.get-started-btn');
 
+
 // Retrieve link pairs from local storage if there are any
 const linkPairs = JSON.parse(localStorage.getItem('Link Pairs')) || [];
 
@@ -59,15 +60,14 @@ form.onsubmit = (e) => {
         toggleErrorOff();
     }
 
-    shortenUrl()
-    .then(() => {
+    sendToBackend().then(() => {
         const newPair = addPair(originalLink, shortLink);
         renderLinks(newPair);
-        })
+    });
     form.reset();
 };
 
 
 const burgerIcon = document.querySelector('.burger-icon');
 
-burgerIcon.onclick = toggleMenu
+burgerIcon.onclick = toggleMenu;
