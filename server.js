@@ -10,6 +10,7 @@ app.use(cors({
 }))
 
 app.use(express.json()); // parse request body as JSON
+app.use(express.static('client'));
 
 
 const endpoint = 'https://api.rebrandly.com/v1/links';
