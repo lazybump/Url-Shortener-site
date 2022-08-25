@@ -3,6 +3,7 @@ const app = express();
 const cors = require('cors');
 const fetch = require('node-fetch');
 require("dotenv").config();
+const port = process.env.PORT || 3000;
 
 app.use(cors({
     origin:'http://127.0.0.1:5500'  // allow other origins
@@ -45,6 +46,6 @@ app.post('/server', (req, res) => {
 });
 
 
-app.listen(3000, () => {
-    console.log(`Server is listening on port 3000`);
+app.listen(port, () => {
+    console.log(`Server is listening on port ${port}`);
 });
