@@ -15,7 +15,7 @@ function toggleErrorOff() {
 
 
 // Server endpoint
-const serverPath = 'http://localhost:3000/server';
+const endpoint = '/server';
 
 
 // Consume API
@@ -23,7 +23,7 @@ const sendToBackend = async () => {
     const data = JSON.stringify({ userInput: input.value });
     try {
         const response = await fetch(
-            serverPath, {
+            endpoint, {
                 method: 'POST',
                 body: data,
                 headers: {
