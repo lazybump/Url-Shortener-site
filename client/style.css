@@ -145,7 +145,7 @@ section {
 
 #showcase p {
     color: var(--grayish-violet);
-    margin: 0 auto 2rem;
+    margin-bottom: 2rem;
 }
 
 .gs-btn {
@@ -433,14 +433,13 @@ footer a {
 
     #showcase {
         text-align: left;
-        padding-top: 4rem;
+        padding-top: 1rem;
         overflow: hidden;
     }
 
     #showcase div {
         grid-auto-flow: column;
-        grid-template-columns: minmax(400px, 550px) minmax(200px, 500px);
-        grid-template-columns: 4fr 1fr;
+        grid-template-columns: 2fr 1fr;
         gap: 6rem;
     }
 
@@ -451,8 +450,8 @@ footer a {
 
     #showcase p {
         color: var(--grayish-violet);
-        margin: 0 auto 2rem;
         font-size: 1.2rem;
+        max-width: 75%;
     }
 
     #showcase img {
